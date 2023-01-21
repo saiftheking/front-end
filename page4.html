@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+ node_modules/
+<html>
+<head>
+  <link rel="stylesheet" href="final progect.css">
+  <script>
+    window.onload = function() {
+        let totalPrice = 0;
+        const buttons = document.querySelectorAll('.add-to-cart');
+        buttons.forEach(button => {
+            button.addEventListener('click', calculatePrice);
+        });
+        
+        const removeButtons = document.querySelectorAll('.remove-from-cart');
+        removeButtons.forEach(button => {
+            button.addEventListener('click', calculatePriceRemove);
+        });
+                
+        function calculatePrice(e) {
+            let price;
+            switch(e.target.id) {
+                case "game1":
+                    price = 29.99;
+                    break;
+                case "game2":
+                    price = 39.99;
+                    break;
+                case "game3":
+                    price = 49.99;
+                    break;
+                case "game4":
+                    price = 59.99;
+                    break;
+                default:
+                    price = 0;
+            }
+            totalPrice += price;
+            document.querySelector("#total").innerHTML = `Total: $${totalPrice}`;
+        }
+        
+        function calculatePriceRemove(e) {
+            let price;
+            switch(e.target.id) {
+                case "game1":
+                    price = 29.99;
+                    break;
+                case "game2":
+                    price = 39.99;
+                    break;
+                case "game3":
+                    price = 49.99;
+                    break;
+                case "game4":
+                    price = 59.99;
+                    break;
+                default:
+                    price = 0;
+            }
+            totalPrice -= price;
+            document.querySelector("#total").innerHTML = `Total: $${totalPrice}`;
+        }
+    }
+  </script>
+</head>
+<body id="body">
+  <header id="header">
+    <h1 id="h1">Game Store</h1>
+  </header>
+  <nav id="nav">
+    <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="page2.html">Minecraft</a></li>
+        <li><a href="page3.html">Rocket League</a></li>
+        <li><a href="page4.html">Overwatch</a></li>
+        <li><a href="page5.html">Call of Duty</a></li>
+    </ul>
+  </nav>
+  <main id="main">
+  <section class="game">
+    <img src="game3.jpg" alt="Game 3">
+    <div>
+      <h3>Overwatch</h3>
+      <p>49.99$</p>
+      <button id="game3" class="add-to-cart">Add to Cart</button>
+      <button id="game3" class="remove-from-cart">Remove from Cart</button>
+    </div>
+  </section>
+  <div id="total">Total: $0</div>
+</main>
+</body>
+</html>
+
+
